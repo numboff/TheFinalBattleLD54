@@ -102,7 +102,7 @@
                     "name": "Att/Def",
                     "id": "39a3edfd-cc50-4f58-b62a-03aab7204188",
                     "path": "1DAxis(whichSideWins=2)",
-                    "interactions": "Hold",
+                    "interactions": "Hold(duration=0.2,pressPoint=0.1)",
                     "processors": "",
                     "groups": "",
                     "action": "Fighting",

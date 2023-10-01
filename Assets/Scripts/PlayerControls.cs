@@ -145,7 +145,8 @@ public class PlayerControls : MonoBehaviour, IDamageable {
         {
             m_animator.SetBool("IdleBlock", true);
 
-            m_blocking = true;
+            if (!m_blocking)
+                m_blocking = true;
         }
 
         else if ((inputAttack <= 0) && m_blocking)
@@ -211,17 +212,18 @@ public class PlayerControls : MonoBehaviour, IDamageable {
     {
         if (!isDead)
         {
-            if (!m_rolling)
+            if (!m_rolling && !m_blocking)
             {
                 m_animator.SetTrigger("Hurt");
                 health -= d;
-                m_body2d.AddForce(direction, ForceMode2D.Impulse);
+                m_body2d.AddForce(direction * 1000, ForceMode2D.Impulse);
             }
             else if (m_blocking)
             {
                 m_animator.SetTrigger("Block");
-                health -= d / 2;
-                m_body2d.AddForce(direction / 2, ForceMode2D.Impulse);
+                health -= (d / 2);
+                Debug.Log("Current HP: "+health);
+                m_body2d.AddForce((direction * 1000) / 2, ForceMode2D.Impulse);
             }
             if (health <= 0)
                 Death();

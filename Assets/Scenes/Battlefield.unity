@@ -2700,7 +2700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2484480194968827430, guid: b38de5cf8d945b643a9712653268a848, type: 3}
       propertyPath: m_startFighting
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2484480194968827430, guid: b38de5cf8d945b643a9712653268a848, type: 3}
       propertyPath: enemyLayer.m_Bits
