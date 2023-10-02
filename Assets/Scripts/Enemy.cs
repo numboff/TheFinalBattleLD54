@@ -83,6 +83,11 @@ public class Enemy : MonoBehaviour, IDamageable
         MoveToPlayer();
 
         AttackPlayer();
+
+        if (transform.position.y < -8)
+        {
+            Death();
+        }
     }
 
     public void Damage(float d)

@@ -18,7 +18,7 @@ public class PlayerControls : MonoBehaviour, IDamageable {
     private bool                m_grounded = false;
     private bool                m_rolling = false;
     private bool                m_blocking = false;
-    private bool                isDead = false;
+    public bool                isDead = false;
     private int                 m_facingDirection = 1;
     private int                 m_currentAttack = 0;
     private float               m_timeSinceAttack = 0.0f;
@@ -190,6 +190,11 @@ public class PlayerControls : MonoBehaviour, IDamageable {
             m_delayToIdle -= Time.deltaTime;
             if (m_delayToIdle < 0)
                 m_animator.SetInteger("AnimState", 0);
+        }
+
+        if (transform.position.y < -8)
+        {
+            Death();
         }
     }
 
