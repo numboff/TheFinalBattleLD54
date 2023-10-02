@@ -5,6 +5,8 @@ using UnityEngine.Windows;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
+    [SerializeField] float m_speed = 5.0f;
+
     private Animator m_animator;
     private Rigidbody2D m_body2d;
     private Sensor_HeroKnight m_groundSensor;
@@ -78,47 +80,17 @@ public class Enemy : MonoBehaviour, IDamageable
 
         LookAtPlayer();
 
-        if ((player.transform.position.x > m_attackPoint.position.x - attackRange) && (player.transform.position.x < m_attackPoint.position.x + attackRange))
-        {
-            if (m_timeSinceAttack > m_attackDelay)
-            {
-                m_currentAttack++;
+        MoveToPlayer();
 
-                // Loop back to one after third attack
-                if (m_currentAttack > 2)
-                    m_currentAttack = 1;
-
-                // Reset Attack combo if time since last attack is too large
-                if (m_timeSinceAttack > 3.0f)
-                    m_currentAttack = 1;
-
-                // Call one of three attack animations "Attack1", "Attack2", "Attack3"
-                m_animator.SetTrigger("Attack" + m_currentAttack);
-
-                // Reset timer
-                m_timeSinceAttack = 0.0f;
-
-                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(m_attackPoint.position, attackRange, enemyLayer);
-                foreach (Collider2D enemie in hitEnemies)
-                {
-                    IDamageable damageable = enemie.GetComponent<IDamageable>();
-                    if (damageable != null)
-                    {
-                        Debug.Log("I hit someone!");
-                        damageable.Damage(damage, new Vector2(m_facingDirection, 0));
-                    }
-                }
-            }
-        }
+        AttackPlayer();
     }
 
-    public void Damage(float d, Vector2 direction)
+    public void Damage(float d)
     {
         if (!isDead)
         {
             m_animator.SetTrigger("Hit");
             health -= d;
-            m_body2d.AddForce(direction * 1000, ForceMode2D.Impulse);
 
             if (health <= 0)
             {
@@ -159,6 +131,50 @@ public class Enemy : MonoBehaviour, IDamageable
             }
             GetComponent<SpriteRenderer>().flipX = true;
             m_facingDirection = -1;
+        }
+    }
+
+    private void MoveToPlayer()
+    {
+        Vector2 target = new Vector2(player.transform.position.x, m_body2d.position.y);
+        Vector2 newPos = Vector2.MoveTowards(m_body2d.position, target, m_speed * Time.fixedDeltaTime);
+
+        m_body2d.MovePosition(newPos);
+    }
+
+    private void AttackPlayer()
+    {
+        if ((player.transform.position.x > m_attackPoint.position.x - attackRange) && (player.transform.position.x < m_attackPoint.position.x + attackRange))
+        {
+            if (m_timeSinceAttack > m_attackDelay)
+            {
+                m_currentAttack++;
+
+                // Loop back to one after third attack
+                if (m_currentAttack > 2)
+                    m_currentAttack = 1;
+
+                // Reset Attack combo if time since last attack is too large
+                if (m_timeSinceAttack > 3.0f)
+                    m_currentAttack = 1;
+
+                // Call one of three attack animations "Attack1", "Attack2", "Attack3"
+                m_animator.SetTrigger("Attack" + m_currentAttack);
+
+                // Reset timer
+                m_timeSinceAttack = 0.0f;
+
+                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(m_attackPoint.position, attackRange, enemyLayer);
+                foreach (Collider2D enemie in hitEnemies)
+                {
+                    IDamageable damageable = enemie.GetComponent<IDamageable>();
+                    if (damageable != null)
+                    {
+                        Debug.Log("I hit someone!");
+                        damageable.Damage(damage);
+                    }
+                }
+            }
         }
     }
 

@@ -135,7 +135,7 @@ public class PlayerControls : MonoBehaviour, IDamageable {
                 if (damageable != null)
                 {
                     Debug.Log("I hit someone!");
-                    damageable.Damage(damage, new Vector2 (m_facingDirection, 0));
+                    damageable.Damage(damage);
                 }
             }
         }
@@ -208,7 +208,7 @@ public class PlayerControls : MonoBehaviour, IDamageable {
         Gizmos.DrawWireSphere(m_attackPoint.position, attackRange);
     }
 
-    public void Damage(float d, Vector2 direction)
+    public void Damage(float d)
     {
         if (!isDead)
         {
@@ -216,14 +216,12 @@ public class PlayerControls : MonoBehaviour, IDamageable {
             {
                 m_animator.SetTrigger("Hurt");
                 health -= d;
-                m_body2d.AddForce(direction * 1000, ForceMode2D.Impulse);
             }
             else if (m_blocking)
             {
                 m_animator.SetTrigger("Block");
                 health -= (d / 2);
                 Debug.Log("Current HP: "+health);
-                m_body2d.AddForce((direction * 1000) / 2, ForceMode2D.Impulse);
             }
             if (health <= 0)
                 Death();
@@ -232,8 +230,8 @@ public class PlayerControls : MonoBehaviour, IDamageable {
 
     private void Death()
     {
+        m_animator.SetBool("IdleBlock", false);
         m_animator.SetTrigger("Death");
-
         isDead = true;
 
         this.enabled = false;

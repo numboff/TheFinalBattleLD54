@@ -2692,7 +2692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2484480194968827430, guid: b38de5cf8d945b643a9712653268a848, type: 3}
       propertyPath: m_speed
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2484480194968827430, guid: b38de5cf8d945b643a9712653268a848, type: 3}
       propertyPath: attackRange
@@ -2700,7 +2700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2484480194968827430, guid: b38de5cf8d945b643a9712653268a848, type: 3}
       propertyPath: m_startFighting
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2484480194968827430, guid: b38de5cf8d945b643a9712653268a848, type: 3}
       propertyPath: enemyLayer.m_Bits
@@ -2748,6 +2748,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3385783347810240957, guid: b38de5cf8d945b643a9712653268a848, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3385783347810240957, guid: b38de5cf8d945b643a9712653268a848, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4876715608330892232, guid: b38de5cf8d945b643a9712653268a848, type: 3}
