@@ -40,9 +40,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3385783347810240957}
+  - component: {fileID: 7713739486430665779}
+  - component: {fileID: 397376817070499064}
   - component: {fileID: 3866215288192111279}
   - component: {fileID: 1110149985534323970}
-  - component: {fileID: 2484480194968827430}
   - component: {fileID: 7267152263529272636}
   - component: {fileID: 4876715608330892232}
   m_Layer: 6
@@ -69,6 +70,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &7713739486430665779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7838783722730029754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa41ec63361653f49aa5d9d7c94c7039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  attackRange: 1.5
+  health: 150
+  damage: 20
+  isDead: 0
+--- !u!114 &397376817070499064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7838783722730029754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2097ef3ee69cc364baae6848fa27f9c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 5
+  m_startFighting: 0
 --- !u!95 &3866215288192111279
 Animator:
   serializedVersion: 5
@@ -141,26 +175,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2484480194968827430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7838783722730029754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ca2276215c9f3442bd45b86cb13c3fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_speed: 4
-  m_jumpForce: 7.5
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  attackRange: 0.5
-  health: 100
-  damage: 15
 --- !u!50 &7267152263529272636
 Rigidbody2D:
   serializedVersion: 4

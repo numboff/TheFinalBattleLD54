@@ -3078,6 +3078,11 @@ Transform:
   m_Father: {fileID: 2042016964}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1903218674 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2253832850639057979, guid: b38de5cf8d945b643a9712653268a848, type: 3}
+  m_PrefabInstance: {fileID: 8755996421936099886}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1942463672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3592,29 +3597,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2484480194968827430, guid: b38de5cf8d945b643a9712653268a848, type: 3}
-      propertyPath: damage
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2484480194968827430, guid: b38de5cf8d945b643a9712653268a848, type: 3}
-      propertyPath: health
-      value: 250
-      objectReference: {fileID: 0}
-    - target: {fileID: 2484480194968827430, guid: b38de5cf8d945b643a9712653268a848, type: 3}
-      propertyPath: m_speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2484480194968827430, guid: b38de5cf8d945b643a9712653268a848, type: 3}
-      propertyPath: attackRange
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2484480194968827430, guid: b38de5cf8d945b643a9712653268a848, type: 3}
+    - target: {fileID: 397376817070499064, guid: b38de5cf8d945b643a9712653268a848, type: 3}
       propertyPath: m_startFighting
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2484480194968827430, guid: b38de5cf8d945b643a9712653268a848, type: 3}
-      propertyPath: enemyLayer.m_Bits
-      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 3385783347810240957, guid: b38de5cf8d945b643a9712653268a848, type: 3}
       propertyPath: m_RootOrder
@@ -3688,6 +3673,10 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7713739486430665779, guid: b38de5cf8d945b643a9712653268a848, type: 3}
+      propertyPath: m_attackPoint
+      value: 
+      objectReference: {fileID: 1903218674}
     - target: {fileID: 7838783722730029754, guid: b38de5cf8d945b643a9712653268a848, type: 3}
       propertyPath: m_Name
       value: EnemySamurai

@@ -12,7 +12,7 @@ public class GameEndCheck : MonoBehaviour
     void Update()
     {
 
-        if(player.GetComponent<PlayerControls>().isDead || enemy.GetComponent<Enemy>().isDead)
+        if(player.GetComponent<PlayerControls>().isDead || enemy.GetComponent<EnemyFighting>().isDead)
         {
             screen.SetActive(true);
         }
